@@ -60,6 +60,7 @@ function createCard(quote) {
 function renderFilters() {
   const tags = [...new Set(quotes.map((quote) => quote.tag).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
   if (tagFilter !== 'all' && !tags.includes(tagFilter)) tagFilter = 'all';
+  els.filters.hidden = tags.length === 0;
   els.filters.replaceChildren();
   for (const tag of ['all', ...tags]) {
     const button = document.createElement('button'); button.type = 'button'; button.className = `filter-chip${tagFilter === tag ? ' is-active' : ''}`; button.dataset.tag = tag; button.textContent = tag === 'all' ? '전체' : `# ${tag}`; button.setAttribute('aria-pressed', String(tagFilter === tag)); els.filters.append(button);
@@ -68,7 +69,11 @@ function renderFilters() {
 function render() {
   els.allCount.textContent = quotes.length;
   els.favoriteCount.textContent = quotes.filter((quote) => quote.favorite).length;
-  document.querySelectorAll('[data-view]').forEach((button) => button.classList.toggle('is-active', button.dataset.view === view));
+  document.querySelectorAll('[data-view]').forEach((button) => {
+    const isActive = button.dataset.view === view;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
   renderFilters();
   const search = els.search.value.trim().toLocaleLowerCase();
   const visible = quotes.filter((quote) => (view === 'all' || quote.favorite) && (tagFilter === 'all' || quote.tag === tagFilter) && (!search || `${quote.text} ${quote.tag || ''}`.toLocaleLowerCase().includes(search)));

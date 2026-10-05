@@ -22,3 +22,50 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:active{tr
 @media(max-width:640px){.app-shell{padding:0 19px}.site-header{min-height:66px}.brand{font-size:19px}.brand-symbol{width:28px;height:28px;font-size:34px;padding-top:6px}.storage-note{display:none}.header-right{gap:0}.intro{min-height:156px;padding:29px 0 26px}.intro h1{font-size:clamp(38px,9vw,53px)}.intro p{font-size:12px;margin-top:12px}.capture{display:block;padding:19px 0 24px}.capture-label{padding:0 0 13px;font-size:12px}.capture-trigger{min-height:76px;padding:17px;font-size:15px}.capture-add{width:37px;height:37px}.collection{padding:27px 0 62px}.collection-top{display:block;margin-bottom:20px}.collection-title-wrap h2{font-size:25px}.collection-tools{justify-content:space-between;margin-top:17px}.search-field{width:min(220px,65vw)}.collection-nav{display:block;min-height:0}.view-nav{height:48px;gap:22px}.tag-filters{max-width:100%;padding:3px 0 8px}.quote-card{grid-template-columns:50px minmax(0,1fr);column-gap:8px;min-height:155px;padding:23px 0}.quote-mark{font-size:49px}.favorite-button{font-size:18px}.card-head{display:block;padding:0}.favorite-button{display:block;margin-top:24px}.card-quote{font-size:18px}.card-actions{gap:17px}.footer{font-size:10px}#editor-form{padding:24px}.form-row{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.15s!important;transition-duration:.15s!important;scroll-behavior:auto!important}.editor-dialog[open]{animation-name:fade-only}@keyframes fade-only{from{opacity:0}to{opacity:1}}}
 @media(prefers-reduced-transparency:reduce){.editor-dialog::backdrop{backdrop-filter:none}.toast{backdrop-filter:none;background:#262c20}}
+
+/* The writing action carries the visual weight; the archive stays quiet and easy to scan. */
+.skip-link{position:fixed;z-index:20;top:12px;left:12px;padding:10px 14px;background:var(--ink);color:var(--white);border-radius:4px;transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+.brand{letter-spacing:-.06em;transition:opacity .16s ease,transform .16s ease}
+.brand:hover{opacity:.72}.brand:active{transform:scale(.97)}
+.export-button{position:relative;transition:color .16s ease,transform .16s ease}
+.export-button:hover{color:#6c8321}.export-button:active{transform:translateY(1px)}
+.intro h1{letter-spacing:-.067em}
+.capture{border-bottom-color:var(--hair)}
+.capture-trigger{position:relative;overflow:hidden;background:#20251c;border-color:#20251c;border-radius:8px;color:#f8f9f3;font-weight:650;letter-spacing:-.035em;box-shadow:0 11px 24px #18201613}
+.capture-trigger::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,#ffffff12,transparent 42%);pointer-events:none}
+.capture-trigger:hover{background:#303a25;box-shadow:0 16px 30px #18201622}
+.capture-trigger:active{transform:scale(.995);box-shadow:0 6px 15px #1820161c}
+.capture-add{background:var(--accent);color:var(--ink);font-weight:600}
+.capture-trigger:hover .capture-add{transform:translate(2px,-2px)}
+.collection-title-wrap h2{letter-spacing:-.055em}
+.collection-nav{border-bottom-color:#9a9e91}
+.nav-item:active,.filter-chip:active,.card-actions button:active{transform:translateY(1px)}
+.filter-chip.is-active{background:#e9f0d3;border-radius:3px;color:#37491d}
+.quote-card{position:relative;transition:background .18s ease,padding-left .18s ease}
+.quote-card::before{content:'';position:absolute;left:-14px;top:25px;bottom:25px;width:3px;border-radius:3px;background:var(--accent);opacity:0;transform:scaleY(.55);transition:opacity .18s ease,transform .18s ease}
+.quote-card:hover::before,.quote-card:focus-within::before{opacity:1;transform:scaleY(1)}
+.card-quote{font-weight:620;letter-spacing:-.04em;line-height:1.48}
+.favorite-button{min-width:32px;min-height:32px;border-radius:50%}
+.favorite-button:hover{background:#e9eddb}
+.favorite-button.is-on{color:#698414}
+.card-actions button{min-height:28px;transition:color .16s ease,transform .16s ease}
+.empty-state{margin:26px auto 0;max-width:590px;padding:56px 20px 68px;border-radius:10px;background:#f0f2e9}
+.empty-state h3{font-size:22px}
+.empty-action,.save-button,.cancel-button,.close-button{transition:background .16s ease,color .16s ease,transform .16s ease}
+.empty-action:active,.save-button:active,.cancel-button:active,.close-button:active{transform:scale(.97)}
+.editor-dialog{border:1px solid #ffffff66;background:#f9faf5;box-shadow:0 28px 80px #10150e40}
+.editor-dialog::backdrop{background:#171e18b8}
+@media(max-width:640px){
+  .site-header{gap:12px}
+  .header-right{gap:12px}
+  .export-button{padding:10px 0;font-size:11px}
+  .export-button span{margin-left:2px}
+  .intro{min-height:145px}
+  .capture-trigger{min-height:82px}
+  .quote-card::before{left:-8px}
+  .empty-state{margin-top:18px;padding:45px 17px 56px}
+}
+@media(max-width:360px){.header-right{gap:8px}.export-button span{display:none}.brand{font-size:17px}.brand-symbol{margin-right:5px}}
+@media(prefers-reduced-motion:reduce){.skip-link,.brand,.capture-trigger,.capture-add,.quote-card,.quote-card::before{transition-duration:.15s!important}.quote-card::before{transform:none}}
+@media(prefers-reduced-transparency:reduce){.editor-dialog::backdrop{backdrop-filter:none}}
