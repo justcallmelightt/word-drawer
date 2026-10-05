@@ -159,7 +159,11 @@ $('#import-file').addEventListener('change', async (event) => {
       typeof quote.createdAt === 'number' && Number.isFinite(quote.createdAt) &&
       typeof quote.favorite === 'boolean')) throw new Error('invalid backup');
     const existingIds = new Set(quotes.map((quote) => quote.id));
-    const additions = backup.quotes.filter((quote) => !existingIds.has(quote.id));
+    const additions = backup.quotes.filter((quote) => {
+      if (existingIds.has(quote.id)) return false;
+      existingIds.add(quote.id);
+      return true;
+    });
     if (additions.length === 0) { showToast('새로 가져올 문장이 없어요.'); return; }
     const previous = quotes;
     quotes = [...quotes, ...additions];

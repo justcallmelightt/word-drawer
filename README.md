@@ -2,6 +2,8 @@
 
 자신의 말을 기록하고 다시 읽는 개인 어록 웹앱입니다.
 
+**웹앱:** https://justcallmelightt.github.io/word-drawer/
+
 ## 사용하기
 
 새 문장을 쓰고 날짜와 태그를 붙일 수 있습니다. 기록은 검색·정렬·즐겨찾기로 다시 찾고, 수정·복사·삭제할 수 있습니다. **내보내기**는 전체 기록을 JSON 파일로 저장합니다. **가져오기**는 문장서랍 백업 파일을 읽어 현재 기록과 중복 없이 합칩니다.
@@ -14,6 +16,6 @@
 
 ## 보안 및 배포
 
-정적 HTML·CSS·JavaScript로 구성되어 GitHub Pages에서 배포할 수 있습니다. 서버 키와 비밀 환경 변수는 사용하지 않습니다. GitHub 저장소에는 사용자의 문장이 포함되지 않습니다. 공개 저장소에 올릴 파일은 앱 소스와 글꼴 파일뿐입니다.
+정적 HTML·CSS·JavaScript로 구성되어 GitHub Pages에 배포되어 있습니다. 서버 키와 비밀 환경 변수는 사용하지 않습니다. GitHub 저장소에는 사용자의 문장이 포함되지 않습니다.
 
 화면 글꼴은 [Pretendard](https://github.com/orioncactus/pretendard)를 사용하며, 글꼴 라이선스는 [`assets/OFL.txt`](assets/OFL.txt)에 포함했습니다.
