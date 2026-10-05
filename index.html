@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8f8f5" />
+  <meta name="description" content="내가 했던 말과 오래 간직하고 싶은 생각을 모으는 개인 어록." />
+  <title>문장서랍 — 나의 어록</title>
+  <link rel="stylesheet" href="./craft.css" />
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell" id="top">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="문장서랍 홈"><span class="brand-symbol">“</span><span>문장서랍</span><span class="brand-period">.</span></a>
+      <div class="header-right"><span class="storage-note">이 브라우저에 저장됩니다</span><button type="button" class="export-button" id="import-button">가져오기 <span aria-hidden="true">↙</span></button><button type="button" class="export-button" id="export-button">내보내기 <span aria-hidden="true">↗</span></button><input id="import-file" type="file" accept="application/json,.json" hidden aria-label="문장서랍 백업 파일 선택" /></div>
+    </header>
+
+    <main class="main-content">
+      <section class="intro" aria-labelledby="page-title"><div class="intro-main"><span class="intro-index">나의 어록</span><h1 id="page-title">내가 남긴 말들<span class="title-period">.</span></h1><p>떠오른 생각을 적고, 시간이 지난 뒤 다시 읽어보세요.</p></div></section>
+
+      <section class="capture" aria-label="새 문장 쓰기"><div class="capture-label"><span class="capture-mark">01</span><span>오늘의 한 문장</span></div><button type="button" class="capture-trigger" id="new-button"><span>지금 마음에 남은 말을 적어보세요.</span><span class="capture-add" aria-hidden="true">↗</span></button></section>
+
+      <section class="collection" aria-labelledby="collection-title"><div class="collection-top"><div class="collection-title-wrap"><h2 id="collection-title">문장 모음 <span id="heading-count">0</span></h2><p>적어둔 말은 이곳에 쌓입니다.</p></div><div class="collection-tools"><label class="search-field"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="문장이나 태그 검색" aria-label="문장이나 태그 검색" /></label><div class="sort-wrap"><label for="sort-select">정렬</label><select id="sort-select"><option value="newest">최근 기록순</option><option value="oldest">오래된 기록순</option></select></div></div></div>
+        <div class="collection-nav"><nav class="view-nav" aria-label="어록 보기"><button class="nav-item is-active" data-view="all" type="button">모든 문장 <span id="all-count">0</span></button><button class="nav-item" data-view="favorite" type="button">아끼는 문장 <span id="favorite-count">0</span></button></nav><div class="tag-filters" id="tag-filters" aria-label="태그 필터"></div></div>
+        <div class="quote-grid" id="quote-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden><span class="empty-symbol">“</span><h3 id="empty-title">첫 문장을 기다리고 있어요.</h3><p id="empty-description">오늘의 생각을 남겨 보세요. 짧은 한 줄이어도 좋아요.</p><button type="button" class="empty-action" id="empty-action">첫 문장 쓰기 <span aria-hidden="true">↗</span></button></div>
+      </section>
+    </main>
+    <footer class="footer"><span>문장서랍</span><span>당신의 말은, 당신의 것.</span></footer>
+  </div>
+
+  <dialog id="editor-dialog" class="editor-dialog" aria-labelledby="editor-title"><form id="editor-form" method="dialog"><div class="dialog-header"><div><span class="dialog-kicker">WRITE IT DOWN</span><h2 id="editor-title">새 문장 남기기</h2></div><button type="button" class="close-button" id="close-dialog" aria-label="닫기">×</button></div><label class="field-label" for="quote-text">남기고 싶은 말 <span>*</span></label><textarea id="quote-text" maxlength="500" required placeholder="지금 마음에 남아 있는 말을 적어 주세요."></textarea><div class="character-count"><span id="character-count">0</span> / 500</div><div class="form-row"><div><label class="field-label" for="quote-tag">태그</label><input id="quote-tag" maxlength="20" placeholder="예: 일상, 생각, 다짐" /></div><div><label class="field-label" for="quote-date">날짜</label><input id="quote-date" type="date" required /></div></div><div class="dialog-footer"><button type="button" class="cancel-button" id="cancel-dialog">취소</button><button type="submit" class="save-button" id="save-button">문장 보관하기 <span>↗</span></button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
